@@ -1,4 +1,5 @@
 ---
+# Repo in repositories/pavotu; deploy copies to public_html/pavotu (same pattern as your other projects).
 deployment:
   tasks:
-    - /bin/true
+    - export DEPLOYPATH=/home1/moose/public_html/pavotu && mkdir -p $DEPLOYPATH && /bin/cp -f index.html work.html resume.html ibm.html lord-abbett.html pearson.html README.md .htaccess $DEPLOYPATH/ 2>/dev/null; /bin/cp -rf assets $DEPLOYPATH/ 2>/dev/null; echo 'DirectoryIndex index.html' > $DEPLOYPATH/.htaccess && find $DEPLOYPATH -path $DEPLOYPATH/.git -prune -o -type d -exec chmod 755 {} \; 2>/dev/null; find $DEPLOYPATH -path $DEPLOYPATH/.git -prune -o -type f -exec chmod 644 {} \; 2>/dev/null; true

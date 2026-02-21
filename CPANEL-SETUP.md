@@ -1,10 +1,10 @@
 # cPanel Git setup for https://disruptiveexperience.com/pavotu/
 
-Follow this exactly so the repo lives where the web server serves from.
+Use the same pattern as your other projects: **repo in `repositories/`**, deploy to **`public_html/`**.
 
-## 1. Correct repository path
+## 1. Repository path (like your other projects)
 
-Your domain is served from the **main account** `public_html`, not from `disruptiveexperience.com/public_html`. So the Git repo must be in the main `public_html`.
+Your other projects live in **repositories/** (pawel, portfolio, udl-stem-lab, etc.). Pavotu should match.
 
 **In cPanel → Git Version Control → Create:**
 
@@ -12,49 +12,36 @@ Your domain is served from the **main account** `public_html`, not from `disrupt
 |-------|--------|
 | **Clone a Repository** | On |
 | **Clone URL** | `https://github.com/ptulin/pavotu.git` |
-| **Repository Path** | `public_html/pavotu` |
+| **Repository Path** | `repositories/pavotu` |
 | **Repository Name** | `pavotu` |
 
-**Do not use:** `repositories/pavotu` or `disruptiveexperience.com/public_html/pavotu` — the site would not be web-accessible there.
+**Full path on server:** `/home1/moose/repositories/pavotu`  
+The site is **not** served from there. Deployment (see below) copies files to **`public_html/pavotu`** so **https://disruptiveexperience.com/pavotu/** works.
 
-**Full path on server:** `/home1/moose/public_html/pavotu`  
-So after clone, the URL **https://disruptiveexperience.com/pavotu/** serves files from that directory.
+## 2. Create the repository in cPanel
 
-## 2. Before creating (if you had a symlink or old repo)
-
-If you already have `~/public_html/pavotu` (symlink or folder), remove it so cPanel can create the repo there:
-
-```bash
-rm -f ~/public_html/pavotu
-```
-
-(Symlink: removed. Real folder: delete it in File Manager or `rm -rf ~/public_html/pavotu`.)
-
-## 3. Create the repository in cPanel
-
-1. **Create** (or **Add**), **Clone a Repository** = On.
+1. **Create** → **Clone a Repository** = On.
 2. **Clone URL:** `https://github.com/ptulin/pavotu.git`
-3. **Repository Path:** `public_html/pavotu` (not `repositories/pavotu`).
+3. **Repository Path:** `repositories/pavotu`
 4. **Repository Name:** `pavotu`
 5. Click **Create** and wait for the clone to finish.
 
-## 4. After the clone
+## 3. After the clone
 
-1. **Manage** → **Pull or Deploy** → **Update from Remote** (so `main` is up to date).
-2. If "Update from Remote" fails (e.g. untracked files), run once on the server:
+1. **Manage** → **Pull or Deploy** → **Update from Remote** (get latest from GitHub).
+2. **Deploy HEAD Commit** (runs `.cpanel.yml`: copies repo → `public_html/pavotu`, sets permissions and `.htaccess`).
+3. If the main site uses WordPress, ensure **`~/public_html/.htaccess`** has the pavotu pass-through (so `/pavotu/` is not handled by WordPress). One-time, on the server:
    ```bash
-   cd ~/public_html/pavotu && git clean -fd && git pull origin main
-   ```
-3. Run the one-shot setup script (permissions + WordPress .htaccess):
-   ```bash
-   cd ~/public_html/pavotu && bash server-setup-pavotu.sh
+   grep -q 'RewriteRule ^pavotu' ~/public_html/.htaccess || (cp ~/public_html/.htaccess ~/public_html/.htaccess.bak && awk '/RewriteEngine On/ { print; print "RewriteRule ^pavotu(/.*)?$ - [L]"; next }1' ~/public_html/.htaccess > ~/public_html/.htaccess.new && mv ~/public_html/.htaccess.new ~/public_html/.htaccess)
    ```
 4. Open **https://disruptiveexperience.com/pavotu/** — the portfolio should load.
 
-## 5. Later: updating the site
+## 4. Later: updating the site
 
-- Push from your Mac to GitHub.
-- In cPanel: **Manage** → **Pull or Deploy** → **Update from Remote**.  
-  Or on the server: `cd ~/public_html/pavotu && git pull origin main`.
+1. Push from your Mac to GitHub.
+2. In cPanel: **Manage** → **Pull or Deploy** → **Update from Remote** → **Deploy HEAD Commit**.
 
-No "Deploy" step needed — the repo is the live site.
+Or on the server:
+```bash
+cd ~/repositories/pavotu && git pull origin main && bash -c 'export DEPLOYPATH=/home1/moose/public_html/pavotu && mkdir -p $DEPLOYPATH && cp -f index.html work.html resume.html ibm.html lord-abbett.html pearson.html README.md .htaccess $DEPLOYPATH/ 2>/dev/null; cp -rf assets $DEPLOYPATH/ 2>/dev/null; echo "DirectoryIndex index.html" > $DEPLOYPATH/.htaccess && find $DEPLOYPATH -type d -exec chmod 755 {} \; && find $DEPLOYPATH -type f -exec chmod 644 {} \;'
+```
