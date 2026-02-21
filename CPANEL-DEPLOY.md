@@ -1,28 +1,47 @@
-# Deploy Pavotu in cPanel (only step left)
+# Deploy Pavotu in cPanel
 
 **Goal:** Site live at **https://disruptiveexperience.com/pavotu/**
 
+The deploy script **creates the directory `public_html/pavotu`** if it doesn’t exist and clones from GitHub (or pulls if already cloned). You can use either **Option A** (script only) or **Option B** (cPanel Git + copy).
+
 ---
 
-## In cPanel
+## Option A – One script (creates dir + deploys)
 
-### 1. Git Version Control → Create
+1. In cPanel open **Terminal**.
+2. Run (paste the whole block):
 
-1. Open **Git Version Control**.
-2. Click **Create**.
-3. Set:
+```bash
+cd ~
+curl -sL https://raw.githubusercontent.com/ptulin/pavotu/main/deploy-to-server.sh -o deploy-pavotu.sh
+chmod +x deploy-pavotu.sh
+bash deploy-pavotu.sh
+```
+
+**Or** if the repo is already there (e.g. you cloned it somewhere):
+
+```bash
+cd ~/pavotu-repo
+bash deploy-to-server.sh
+```
+
+The script will:
+- Create `~/disruptiveexperience.com/public_html/pavotu` if it doesn’t exist
+- Clone https://github.com/ptulin/pavotu into `~/pavotu-repo` (or pull if it exists)
+- Copy `pavotu-local/*` into `public_html/pavotu/`
+
+3. Open **https://disruptiveexperience.com/pavotu/** in your browser.
+
+---
+
+## Option B – cPanel Git then copy
+
+1. **Git Version Control → Create**
    - **Repository URL:** `https://github.com/ptulin/pavotu.git`
    - **Repository path:** `public_html/pavotu`
-4. Click **Create**. cPanel will clone the repo into `public_html/pavotu`.
+   - Create (this creates the `pavotu` directory and clones the repo).
 
-### 2. Copy site files into the web root
-
-The repo has a `pavotu-local` folder; the site must be served from the contents of that folder in `public_html/pavotu/`.
-
-**Option A – cPanel Terminal**
-
-1. Open **Terminal** in cPanel.
-2. Run:
+2. **Terminal:**
 
 ```bash
 cd ~/disruptiveexperience.com/public_html/pavotu
@@ -30,32 +49,22 @@ git pull origin main
 cp -rf pavotu-local/* .
 ```
 
-3. Done. Open **https://disruptiveexperience.com/pavotu/** in your browser.
+3. Open **https://disruptiveexperience.com/pavotu/** in your browser.
 
-**Option B – Run the deploy script**
+---
 
-1. In cPanel **Terminal**:
+## Updating the site later
+
+1. Push from your Mac: `git push origin main`
+2. On the server in **Terminal**:
 
 ```bash
-cd ~/disruptiveexperience.com/public_html/pavotu
+cd ~/pavotu-repo
 bash deploy-to-server.sh
 ```
 
----
-
-## Later: update the site
-
-1. Push changes from your Mac: `git push origin main`
-2. In cPanel → **Git Version Control** → **Manage** → select the **pavotu** repo → **Pull**.
-3. In **Terminal** run again:
-
-```bash
-cd ~/disruptiveexperience.com/public_html/pavotu
-cp -rf pavotu-local/* .
-```
-
-Or: `bash deploy-to-server.sh`
+(Or with Option B: cPanel Git → Manage → Pull, then run `cp -rf pavotu-local/* .` in that directory.)
 
 ---
 
-**Live URL:** https://disruptiveexperience.com/pavotu/
+**Summary:** The script creates the `pavotu` directory on the server and deploys from GitHub. **I did not push to GitHub from here** — you still need to run `git push -u origin main` from your Mac (and create the repo `pavotu` on GitHub if it doesn’t exist).

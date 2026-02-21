@@ -1,23 +1,28 @@
 #!/bin/bash
 # Deploy Pavotu portfolio to disruptiveexperience.com/pavotu/
-# Run this ON THE SERVER (cPanel Terminal or SSH) after cPanel has cloned the repo.
+# Run this ON THE SERVER (cPanel Terminal or SSH).
+# Creates public_html/pavotu if needed, clones or pulls from GitHub, then copies site files.
 
 set -e
 
-# Where cPanel cloned the repo (path under your account)
-REPO_DIR="${REPO_DIR:-$HOME/disruptiveexperience.com/public_html/pavotu}"
-# Site lives at public_html/pavotu/
+REPO_URL="https://github.com/ptulin/pavotu.git"
+# Where the site must live: https://disruptiveexperience.com/pavotu/
 WEB_ROOT="${WEB_ROOT:-$HOME/disruptiveexperience.com/public_html/pavotu}"
+# Where we clone/pull the repo (can be same as WEB_ROOT or a separate dir)
+REPO_DIR="${REPO_DIR:-$HOME/pavotu-repo}"
 
-if [ ! -d "$REPO_DIR" ]; then
-  echo "Error: $REPO_DIR not found. Clone the repo in cPanel Git first (path: public_html/pavotu)."
-  exit 1
+echo "Creating directory: $WEB_ROOT"
+mkdir -p "$WEB_ROOT"
+
+if [ ! -d "$REPO_DIR/.git" ]; then
+  echo "Cloning repo into $REPO_DIR ..."
+  rm -rf "$REPO_DIR"
+  git clone "$REPO_URL" "$REPO_DIR"
 fi
 
 cd "$REPO_DIR"
 git pull origin main
 
-# Copy site files from pavotu-local/ into the web root so index.html is at .../pavotu/index.html
 echo "Copying pavotu-local/* to $WEB_ROOT ..."
 cp -rf pavotu-local/* "$WEB_ROOT/"
 
