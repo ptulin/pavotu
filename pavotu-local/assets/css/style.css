@@ -1,0 +1,750 @@
+/* Pavotu portfolio – local copy (matched to original pavotu.com) */
+:root {
+  --color-bg: #1a1a1a;
+  --color-bg-section: #252525;
+  --color-header: #1e3a4d;
+  --color-text: #ffffff;
+  --color-muted: #b0b0b0;
+  --color-accent: #4CAF50;
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --max-width: 1000px;
+  --space: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.skip-top {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 999;
+}
+.skip-top:focus {
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #116dff;
+  border-radius: 4px;
+}
+
+/* Header – dark blue bar, logo left, nav right, Download Resume button */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-header);
+  padding: 0.6rem var(--space);
+}
+
+.site-header .header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.logo-link img {
+  width: 40px;
+  height: 40px;
+  display: block;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.site-nav > a {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.site-nav > a:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+/* Dropdown for Selected Work */
+.nav-dropdown {
+  position: relative;
+}
+.nav-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.nav-dropdown summary::-webkit-details-marker { display: none; }
+.nav-dropdown summary:hover { color: var(--color-accent); }
+.nav-dropdown ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0.5rem 0;
+  list-style: none;
+  background: #2a3a45;
+  min-width: 200px;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+.nav-dropdown a {
+  display: block;
+  padding: 0.4rem 1rem;
+  color: var(--color-text);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.nav-dropdown a:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.header-cta {
+  padding: 0.5rem 1rem;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+.header-cta:hover {
+  opacity: 0.9;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Main */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space);
+  padding-bottom: 4rem;
+}
+
+/* Hero – sky feel, I'M PAWEL / TULIN. in green */
+.hero {
+  text-align: center;
+  padding: 4rem 0 3rem;
+  background: linear-gradient(180deg, #87CEEB 0%, #B0E0E6 30%, #e8f4f8 60%, var(--color-bg) 100%);
+  margin: 0 calc(-1 * var(--space));
+  padding-left: var(--space);
+  padding-right: var(--space);
+  margin-bottom: 0;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.hero h1 .name-accent {
+  color: var(--color-accent);
+}
+
+.hero .tagline {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+.hero .intro {
+  margin-top: 2rem;
+  font-size: 1rem;
+  line-height: 2;
+  color: var(--color-muted);
+  max-width: 42em;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero .cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.hero .cta:hover {
+  text-decoration: none;
+  opacity: 0.9;
+  color: #fff;
+}
+
+/* About block – green R */
+.about-block {
+  text-align: center;
+  margin: 3rem 0;
+}
+.about-block .logo-r {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  display: block;
+}
+.about-block .intro {
+  color: var(--color-muted);
+  max-width: 42em;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Sections – 01 PROFESSIONAL etc. */
+.section {
+  margin: 3rem 0;
+}
+
+.section-title {
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+}
+
+.section h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+}
+
+.section h2 a {
+  color: inherit;
+}
+.section h2 a:hover {
+  color: var(--color-accent);
+}
+
+/* Skills bars – green fill */
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skills-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.skill-label {
+  flex: 0 0 200px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.skill-bar {
+  flex: 1;
+  max-width: 280px;
+  height: 10px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+
+.skill-pct {
+  flex: 0 0 3ch;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* Portfolio grid – WORK THAT I AM PROUD OF */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+@media (max-width: 640px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.portfolio-item {
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--color-bg-section);
+  aspect-ratio: 1;
+}
+
+.portfolio-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.portfolio-item .placeholder-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  text-transform: uppercase;
+  background: var(--color-bg-section);
+}
+
+.portfolio-item:hover {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  text-decoration: none;
+}
+
+/* Experience timeline – green dots */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.timeline li {
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+  border-left: 2px solid rgba(255,255,255,0.15);
+  position: relative;
+}
+
+.timeline li::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 0.25rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.timeline .period {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-bottom: 0.25rem;
+}
+
+.timeline .role {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline .description {
+  font-size: 0.95rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+/* Contact – GET IN TOUCH, form with Subject */
+.contact-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.contact-section .section-title {
+  margin-bottom: 0.25rem;
+}
+
+.contact-section .get-in-touch {
+  color: var(--color-muted);
+  margin-bottom: 1rem;
+}
+
+.contact-form {
+  max-width: 420px;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+}
+
+.contact-form .full-width {
+  grid-column: 1 / -1;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 1rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.contact-form button {
+  grid-column: 1 / -1;
+  padding: 0.65rem 1.5rem;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  justify-self: start;
+}
+.contact-form button:hover {
+  opacity: 0.9;
+}
+
+/* Footer – dark blue, logo left, social center, © right */
+.site-footer {
+  background: var(--color-header);
+  padding: 1.5rem var(--space);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.site-footer .footer-logo img {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+
+.site-footer .social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.site-footer .social-links a {
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+.site-footer .social-links a:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.site-footer .copyright {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+/* Page title (inner pages) */
+.page-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 600;
+  margin: 2rem 0 0.5rem;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+}
+
+.page-subtitle {
+  font-size: 1rem;
+  color: var(--color-muted);
+  margin-bottom: 2rem;
+}
+
+.content-block {
+  margin-bottom: 2rem;
+}
+
+.content-block h3 {
+  font-size: 1.25rem;
+  margin: 0 0 0.5rem;
+  color: var(--color-text);
+}
+
+.content-block p {
+  color: var(--color-muted);
+  margin: 0 0 1rem;
+  line-height: 1.7;
+}
+
+.pdf-links {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.pdf-links li { margin-bottom: 0.5rem; }
+
+/* Resume page */
+.resume-download {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.resume-download:hover {
+  text-decoration: none;
+  opacity: 0.9;
+  color: #fff;
+}
+
+.resume-section {
+  margin-bottom: 2rem;
+}
+
+.resume-section h2 {
+  font-size: 1.25rem;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.resume-section ul {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+  color: var(--color-muted);
+  line-height: 1.7;
+}
+
+/* Selected Work – alternating image/text blocks */
+.work-alternating {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.work-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  min-height: 280px;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.work-block:nth-child(even) .work-block-text { order: 2; }
+.work-block:nth-child(even) .work-block-img { order: 1; }
+
+@media (max-width: 700px) {
+  .work-block {
+    grid-template-columns: 1fr;
+  }
+  .work-block .work-block-text,
+  .work-block .work-block-img { order: unset; }
+}
+
+.work-block-title {
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  margin: 0 0 0.5rem;
+}
+
+.work-block-desc {
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin: 0 0 0.75rem;
+}
+
+.work-block-link {
+  font-size: 0.9rem;
+}
+
+.work-block-img {
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--color-bg-section);
+}
+
+.work-block-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 220px;
+}
+
+.work-block-img .placeholder-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+  text-transform: uppercase;
+}
+
+/* Work page – single page with all projects (pavotu.com/work) */
+.work-project {
+  margin-bottom: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.work-project:last-child {
+  border-bottom: none;
+}
+
+.work-project-title {
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  margin: 0 0 0.25rem;
+  font-weight: 600;
+}
+
+.work-project-subtitle {
+  font-size: 1rem;
+  color: var(--color-muted);
+  margin: 0 0 1rem;
+}
+
+.work-project-desc {
+  color: var(--color-muted);
+  line-height: 1.75;
+  margin: 0 0 0.75rem;
+}
+
+.work-project-link {
+  margin: 1rem 0 1.25rem;
+}
+
+.work-project-link a {
+  color: var(--color-accent);
+}
+
+.work-project-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.work-project-images img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+@media (min-width: 500px) {
+  .work-project-images img {
+    max-width: 280px;
+  }
+}
+
+/* Work list (simple list fallback) */
+.work-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.work-list li {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.work-list li:last-child { border-bottom: none; }
+
+.work-list h3 {
+  font-size: 1.35rem;
+  color: var(--color-accent);
+  margin: 0 0 0.25rem;
+}
+
+.work-list .work-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  margin-bottom: 0.75rem;
+}
+
+.work-list .work-desc {
+  color: var(--color-muted);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.work-list .work-link {
+  font-size: 0.9rem;
+}
