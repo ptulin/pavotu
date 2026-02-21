@@ -41,9 +41,9 @@ rm -f ~/public_html/pavotu
    ```bash
    grep -q 'RewriteRule ^pavotu' ~/public_html/.htaccess || (cp ~/public_html/.htaccess ~/public_html/.htaccess.bak && awk '/RewriteEngine On/ { print; print "RewriteRule ^pavotu(/.*)?$ - [L]"; next }1' ~/public_html/.htaccess > ~/public_html/.htaccess.new && mv ~/public_html/.htaccess.new ~/public_html/.htaccess)
    ```
-3. Optionally run the setup script (permissions + .htaccess in pavotu):
+3. If you get **403 Forbidden**, run the fix script (permissions + .htaccess):
    ```bash
-   cd ~/public_html/pavotu && bash server-setup-pavotu.sh
+   cd ~/public_html/pavotu && git pull origin main && bash fix-pavotu-403.sh
    ```
 4. Open **https://disruptiveexperience.com/pavotu/**.
 

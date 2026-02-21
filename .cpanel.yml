@@ -1,5 +1,5 @@
 ---
-# Repo at public_html/pavotu (same as disruptive: public_html/disruptive). Pull = live; no copy step.
+# public_html/pavotu = live; Update from Remote only (no deploy copy).
 deployment:
   tasks:
     - /bin/true

@@ -1,33 +1,23 @@
-# Pavotu portfolio – local copy
+# Pavotu portfolio
 
-Static local copy of [pavotu.com](https://www.pavotu.com), scraped and rebuilt so it works offline with no external dependencies except where noted.
+Static portfolio site for **Pawel Tulin** (UX & Service Designer). Live at **https://disruptiveexperience.com/pavotu/**.
 
-## What’s included
+## Local
 
-- **Pages:** `index.html`, `work.html` (full Selected Work, one page with all 10 projects), `lord-abbett.html`, `ibm.html`, `pearson.html`, `resume.html`
-- **Assets:** `assets/css/style.css`, `assets/images/` (favicon, logo, and all work-page images from the original site: CFO_AI.jpg, LA_fundfinder.jpeg, ibm1.jpeg, pearson1.jpeg, copd1.jpeg, intel1.jpeg, td-audit.jpeg, glg-service.jpeg, brand-asset-management1.jpeg, signup-pixacore.jpg), `assets/pdf/` (all PDFs from Lord Abbett + selected work)
-- **Content:** Home hero, skills, portfolio grid, experience timeline, contact; full Selected Work page matching [pavotu.com/work](https://www.pavotu.com/work) with all project copy and original images; Lord Abbett, IBM, Pearson subpages with local links
+- **Pages:** `index.html`, `work.html`, `lord-abbett.html`, `ibm.html`, `pearson.html`, `resume.html`
+- **Assets:** `assets/css/style.css`, `assets/images/`, `assets/pdf/`
+- Open `index.html` in a browser or run: `python3 -m http.server 8000` then visit http://localhost:8000
 
-## How to view
+## Deploy (cPanel)
 
-Open `index.html` in a browser, or run a local server, e.g.:
+- Repo path on server: **public_html/pavotu** (same pattern as **public_html/disruptive**). Pull = live.
+- Full steps: **[CPANEL-SETUP.md](CPANEL-SETUP.md)**
+- If you get **403** after clone: run **fix-pavotu-403.sh** on the server (or the one-liner in that script).
+
+## Push to GitHub
 
 ```bash
-cd pavotu-local
-python3 -m http.server 8000
-# then open http://localhost:8000
+./quick-push.sh
 ```
 
-## What’s not included (Wix-only)
-
-- Exact Wix layout/animations.
-- Resume PDF (hosted on Wix; resume page links to pavotu.com).
-- INTEL, TD Ameritrade, Gerson Lehrman project subpages (sections exist on **work.html**; “see work samples” links to pavotu.com where no local PDF).
-- Contact form submission (form is present but does not submit anywhere).
-
-## PDFs stored locally
-
-- Lord Abbett: IA sample, data sample, component library sample, mobile sample.
-- Work: Fiserv, COPD, Corporate Voice, The Children’s Place.
-
-All paths in the HTML are relative; no CDN or frameworks required.
+Uses `GITHUB_TOKEN` or `~/.github_token`. Repo: **https://github.com/ptulin/pavotu**

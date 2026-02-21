@@ -4,7 +4,6 @@
 set -e
 REPO="${REPO:-$HOME/public_html/pavotu}"
 DOMAIN_HTA="${DOMAIN_HTA:-$HOME/public_html/.htaccess}"
-RULE='RewriteRule ^pavotu(/.*)?$ - [L]'
 
 echo "1. Going to repo..."
 cd "$REPO"
