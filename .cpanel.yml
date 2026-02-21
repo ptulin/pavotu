@@ -1,5 +1,4 @@
 ---
-# Site is at repo root; pull delivers files. No copy step (that was failing). One no-op so deploy is valid.
 deployment:
   tasks:
     - /bin/true
