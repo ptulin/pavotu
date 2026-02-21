@@ -1,7 +1,5 @@
 ---
-# cPanel Git Deployment - runs from repo root; copy pavotu-local into repo root so site serves at /pavotu/
+# Site is at repo root; pull delivers files. No copy step (that was failing). One no-op so deploy is valid.
 deployment:
   tasks:
-    - /bin/cp -rf pavotu-local/. .
-    - chmod -R 755 .
-    - find . -path ./.git -prune -o -type f -exec chmod 644 {} \;
+    - /bin/true
