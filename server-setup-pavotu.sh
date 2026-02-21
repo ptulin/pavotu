@@ -1,8 +1,9 @@
 #!/bin/bash
-# Run this on the server (SSH). One-time setup: clean repo, permissions, .htaccess for disruptiveexperience.com/pavotu/
+# Run this on the server (SSH). One-time setup: clean repo, permissions, .htaccess.
+# Use when repo is at ~/public_html/pavotu (see CPANEL-SETUP.md).
 set -e
-REPO="$HOME/disruptiveexperience.com/public_html/pavotu"
-DOMAIN_HTA="$HOME/disruptiveexperience.com/public_html/.htaccess"
+REPO="${REPO:-$HOME/public_html/pavotu}"
+DOMAIN_HTA="${DOMAIN_HTA:-$HOME/public_html/.htaccess}"
 RULE='RewriteRule ^pavotu(/.*)?$ - [L]'
 
 echo "1. Going to repo..."
