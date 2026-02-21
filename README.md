@@ -6,7 +6,12 @@ Static portfolio site for **Pawel Tulin** (UX & Service Designer). Live at **htt
 
 - **Pages:** `index.html`, `work.html`, `lord-abbett.html`, `ibm.html`, `pearson.html`, `resume.html`
 - **Assets:** `assets/css/style.css`, `assets/images/`, `assets/pdf/`
-- Open `index.html` in a browser or run: `python3 -m http.server 8000` then visit http://localhost:8000
+- Run the server **from the project root** (the folder that contains `index.html` and `lord-abbett.html`):
+  ```bash
+  cd /path/to/Pavotu
+  python3 -m http.server 8765
+  ```
+  Then open http://127.0.0.1:8765/ or http://127.0.0.1:8765/lord-abbett.html
 
 ## Deploy (cPanel)
 
