@@ -1,8 +1,6 @@
 ---
 # cPanel Git Deployment - copies pavotu-local contents to web root (disruptiveexperience.com/pavotu)
+# Use full path in one task so DEPLOYPATH is not lost between tasks (cPanel may use separate shells).
 deployment:
   tasks:
-    - export DEPLOYPATH=/home1/moose/disruptiveexperience.com/public_html/pavotu
-    - /bin/cp -rf $DEPLOYPATH/pavotu-local/. $DEPLOYPATH/
-    - chmod -R 755 $DEPLOYPATH
-    - find $DEPLOYPATH -type f -exec chmod 644 {} \;
+    - export DEPLOYPATH=/home1/moose/disruptiveexperience.com/public_html/pavotu && /bin/cp -rf $DEPLOYPATH/pavotu-local/. $DEPLOYPATH/ && chmod -R 755 $DEPLOYPATH && find $DEPLOYPATH -type f -exec chmod 644 {} \;
