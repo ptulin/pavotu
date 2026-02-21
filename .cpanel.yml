@@ -1,8 +1,8 @@
 ---
-# cPanel Git Deployment - copies pavotu-local/* to web root so site loads at disruptiveexperience.com/pavotu/
+# cPanel Git Deployment - copies pavotu-local contents to web root (disruptiveexperience.com/pavotu)
 deployment:
   tasks:
     - export DEPLOYPATH=/home1/moose/disruptiveexperience.com/public_html/pavotu
-    - /bin/cp -rf $DEPLOYPATH/pavotu-local/* $DEPLOYPATH/
+    - /bin/cp -rf $DEPLOYPATH/pavotu-local/. $DEPLOYPATH/
     - chmod -R 755 $DEPLOYPATH
     - find $DEPLOYPATH -type f -exec chmod 644 {} \;
