@@ -50,3 +50,18 @@ rm -f ~/public_html/pavotu
 ## 5. Later: updating the site
 
 - Push to GitHub, then in cPanel: **Update from Remote** (same as disruptive). No Deploy step.
+
+## 6. Refresh server (delete all, use `live` branch)
+
+To wipe the server copy and switch to the **live** branch, run once on the server (SSH):
+
+```bash
+cd ~/public_html/pavotu
+git fetch origin
+git clean -fd
+git checkout live
+git reset --hard origin/live
+bash fix-pavotu-403.sh
+```
+
+Then in cPanel: **Manage** → **Pull or Deploy** → **Update from Remote** (to sync cPanel with the current branch).
