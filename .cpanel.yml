@@ -1,6 +1,7 @@
 ---
-# cPanel Git Deployment - copies pavotu-local contents to web root (disruptiveexperience.com/pavotu)
-# Single task so DEPLOYPATH is set for all commands. deploy-last-run.txt confirms deploy ran.
+# cPanel Git Deployment - runs from repo root; copy pavotu-local into repo root so site serves at /pavotu/
 deployment:
   tasks:
-    - export DEPLOYPATH=/home1/moose/disruptiveexperience.com/public_html/pavotu && date > $DEPLOYPATH/deploy-last-run.txt && /bin/cp -rf $DEPLOYPATH/pavotu-local/. $DEPLOYPATH/ && chmod -R 755 $DEPLOYPATH && find $DEPLOYPATH -type f -exec chmod 644 {} \;
+    - /bin/cp -rf pavotu-local/. .
+    - chmod -R 755 .
+    - find . -path ./.git -prune -o -type f -exec chmod 644 {} \;
