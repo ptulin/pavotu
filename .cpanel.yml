@@ -3,7 +3,6 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home1/moose/disruptiveexperience.com/public_html/pavotu
-    - mkdir -p "$DEPLOYPATH"
-    - /bin/cp -rf pavotu-local/* "$DEPLOYPATH/"
-    - chmod -R 755 "$DEPLOYPATH"
-    - find "$DEPLOYPATH" -type f -exec chmod 644 {} \;
+    - /bin/cp -rf $DEPLOYPATH/pavotu-local/* $DEPLOYPATH/
+    - chmod -R 755 $DEPLOYPATH
+    - find $DEPLOYPATH -type f -exec chmod 644 {} \;
