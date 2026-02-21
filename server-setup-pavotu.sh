@@ -22,7 +22,8 @@ echo 'DirectoryIndex index.html' > "$REPO/.htaccess"
 
 echo "5. Exclude /pavotu/ from WordPress in domain .htaccess..."
 if [ ! -f "$DOMAIN_HTA" ]; then
-  echo "   WARNING: $DOMAIN_HTA not found. Create it or add this line after RewriteEngine On: $RULE"
+  echo "   Creating $DOMAIN_HTA (was missing)..."
+  printf '%s\n%s\n' 'RewriteEngine On' 'RewriteRule ^pavotu(/.*)?$ - [L]' > "$DOMAIN_HTA"
 else
   if grep -q 'RewriteRule ^pavotu' "$DOMAIN_HTA" 2>/dev/null; then
     echo "   Already present."
