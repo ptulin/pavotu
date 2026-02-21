@@ -1,28 +1,27 @@
 #!/bin/bash
-# Deploy Pavotu portfolio to disruptiveexperience.com
-# Run this ON THE SERVER (SSH or cPanel Terminal) after cloning the repo.
-# Or: run locally with SSH: ssh user@disruptiveexperience.com 'bash -s' < deploy-to-server.sh
+# Deploy Pavotu portfolio to disruptiveexperience.com/pavotu/
+# Run this ON THE SERVER (cPanel Terminal or SSH) after cPanel has cloned the repo.
 
 set -e
 
-# Where the repo is on the server (change if you cloned elsewhere)
-REPO_DIR="${REPO_DIR:-$HOME/ptulin}"
+# Where cPanel cloned the repo (path under your account)
+REPO_DIR="${REPO_DIR:-$HOME/disruptiveexperience.com/public_html/pavotu}"
+# Site lives at public_html/pavotu/
+WEB_ROOT="${WEB_ROOT:-$HOME/disruptiveexperience.com/public_html/pavotu}"
+
 if [ ! -d "$REPO_DIR" ]; then
-  echo "Cloning repo..."
-  git clone https://github.com/ptulin/ptulin.git "$REPO_DIR"
+  echo "Error: $REPO_DIR not found. Clone the repo in cPanel Git first (path: public_html/pavotu)."
+  exit 1
 fi
 
 cd "$REPO_DIR"
 git pull origin main
 
-# Web root for disruptiveexperience.com (same pattern as DE.Main)
-WEB_ROOT="${WEB_ROOT:-$HOME/disruptiveexperience.com/public_html}"
-mkdir -p "$WEB_ROOT"
-
+# Copy site files from pavotu-local/ into the web root so index.html is at .../pavotu/index.html
 echo "Copying pavotu-local/* to $WEB_ROOT ..."
 cp -rf pavotu-local/* "$WEB_ROOT/"
 
 chmod -R 755 "$WEB_ROOT"
 find "$WEB_ROOT" -type f -exec chmod 644 {} \;
 
-echo "✅ Deployed. Visit https://disruptiveexperience.com/"
+echo "✅ Deployed. Visit https://disruptiveexperience.com/pavotu/"
