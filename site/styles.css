@@ -748,6 +748,17 @@ footer {
   line-height: 1.82;
 }
 
+.resume-ai-clients a {
+  color: #1f1913;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(150, 107, 38, 0.35);
+}
+
+.resume-ai-clients a:hover {
+  color: #6f4a16;
+  border-bottom-color: rgba(111, 74, 22, 0.7);
+}
+
 .resume-ai-metrics {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
