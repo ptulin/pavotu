@@ -796,6 +796,15 @@ footer {
   margin: 0 0 18px;
 }
 
+/* Cancel global section spacing for resume-specific rows */
+.resume-ai-page section.resume-ai-metrics,
+.resume-ai-page section.resume-ai-story-strip {
+  max-width: none;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .resume-ai-story-card {
   border-radius: 16px;
   padding: 12px 12px 14px;
