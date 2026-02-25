@@ -18,3 +18,17 @@ Thumbs.db
 # Logs / temp
 *.log
 .cache
+
+# Generated root publish output from site/
+/copd/
+/gerson-lehrman-group/
+/ibm/
+/images/
+/lord-abbett/
+/main.js
+/pearson/
+/resume/
+/styles.css
+/td-ameritrade/
+/the-childrens-place/
+/work/
