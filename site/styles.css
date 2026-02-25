@@ -462,8 +462,29 @@ footer {
 /* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
-  .nav-links { display: none; }
-  .hamburger { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-bottom: 1px solid #e0e0e0;
+    flex-direction: column;
+    gap: 0;
+  }
+  nav.nav-open .nav-links { display: flex; }
+  .nav-links a {
+    display: block;
+    padding: 14px 20px;
+    border-top: 1px solid #f0f0f0;
+  }
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    user-select: none;
+    color: var(--black);
+  }
 
   section { padding: 64px 20px; }
   .hero-inner { padding: 60px 20px; }
