@@ -1,9 +1,17 @@
 #!/bin/bash
-# Stop any server on 8765, then start from project root. Single port, reload = run again.
+set -euo pipefail
+
+# Serve the canonical static source directory.
 cd "$(dirname "$0")"
-PORT=8765
-pid=$(lsof -ti :$PORT 2>/dev/null)
-[ -n "$pid" ] && kill $pid 2>/dev/null && echo "Stopped existing server (PID $pid)."
-sleep 1
-echo "Serving at http://127.0.0.1:$PORT/"
-exec python3 -m http.server $PORT
+PORT="${1:-8765}"
+DOCROOT="site"
+
+pid=$(lsof -ti :"$PORT" 2>/dev/null || true)
+if [ -n "${pid}" ]; then
+  kill "${pid}" 2>/dev/null || true
+  echo "Stopped existing server on port ${PORT} (PID ${pid})."
+  sleep 1
+fi
+
+echo "Serving ${DOCROOT}/ at http://127.0.0.1:${PORT}/"
+exec python3 -m http.server "${PORT}" --directory "${DOCROOT}"

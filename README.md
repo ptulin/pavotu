@@ -1,23 +1,50 @@
-# Pavotu portfolio
+# Pavotu Portfolio
 
 Static portfolio site for **Pawel Tulin** (UX & Service Designer). Live at **https://disruptiveexperience.com/pavotu/**.
 
-## Local
+## Canonical Source
 
-- **Pages:** `index.html`, `work.html`, `lord-abbett.html`, `ibm.html`, `pearson.html`, `resume.html`
-- **Assets:** `assets/css/style.css`, `assets/images/`, `assets/pdf/`
-- Run the server **from the project root** (the folder that contains `index.html` and `lord-abbett.html`):
-  ```bash
-  cd /path/to/Pavotu
-  python3 -m http.server 8765
-  ```
-  Then open http://127.0.0.1:8765/ or http://127.0.0.1:8765/lord-abbett.html
+- Source of truth: `site/`
+- Runtime output path (for legacy hosting compatibility): repository root
+
+## Local Development
+
+1. Start the local server:
+   ```bash
+   ./serve.sh
+   ```
+2. Open:
+   - `http://127.0.0.1:8765/`
+   - `http://127.0.0.1:8765/work/index.html`
+
+## Automated Checks
+
+Run all static checks:
+
+```bash
+./check-site.py
+```
+
+Checks include:
+- broken local links/assets in `site/**/*.html`
+- required mobile-nav wiring (`hamburger` + `main.js`) on all pages
+
+## Publish `site/` to Root
+
+Sync canonical `site/` into repository root:
+
+```bash
+./publish-site.sh
+```
+
+This supports hosts that serve from repo root.
 
 ## Deploy (cPanel)
 
-- Repo path on server: **public_html/pavotu** (same pattern as **public_html/disruptive**). Pull = live.
-- Full steps: **[CPANEL-SETUP.md](CPANEL-SETUP.md)**
-- If you get **403** after clone: run **fix-pavotu-403.sh** on the server (or the one-liner in that script).
+- Repo path on server: `public_html/pavotu`
+- `.cpanel.yml` now runs `publish-site.sh` after pull
+- Full setup: [CPANEL-SETUP.md](CPANEL-SETUP.md)
+- If you get `403` after clone: run `fix-pavotu-403.sh`
 
 ## Push to GitHub
 

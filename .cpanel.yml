@@ -1,5 +1,5 @@
 ---
-# public_html/pavotu = live; Update from Remote only (no deploy copy).
+# public_html/pavotu = live; sync canonical site/ to root after pull.
 deployment:
   tasks:
-    - /bin/true
+    - /bin/bash publish-site.sh
