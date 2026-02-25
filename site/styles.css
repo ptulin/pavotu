@@ -1093,6 +1093,258 @@ footer {
   border-bottom-color: rgba(255, 241, 217, 0.6);
 }
 
+/* ---- RESUME TERMINAL PAGE ---- */
+body.resume-terminal-mode {
+  background: #000;
+  color: #00e67a;
+  font-family: "IBM Plex Mono", "Courier New", monospace;
+}
+
+body.resume-terminal-mode nav,
+body.resume-terminal-mode .resume-terminal-footer {
+  display: none;
+}
+
+body.resume-terminal-mode .page-content {
+  padding-top: 0;
+}
+
+.resume-terminal-page {
+  min-height: 100vh;
+  padding: 12px;
+  background: #000;
+}
+
+.resume-terminal-page section {
+  max-width: none;
+  margin: 0;
+}
+
+.resume-terminal-screen {
+  width: min(1700px, 98vw);
+  height: min(940px, 96vh);
+  margin: 0 auto;
+  border: 2px solid rgba(0, 220, 112, 0.68);
+  background: #000;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 350px;
+  grid-template-rows: minmax(0, 1fr) auto;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 220, 112, 0.2),
+    inset 0 0 26px rgba(0, 220, 112, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-terminal-screen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 255, 128, 0.035) 0,
+      rgba(0, 255, 128, 0.035) 1px,
+      transparent 2px,
+      transparent 4px
+    );
+  mix-blend-mode: screen;
+}
+
+.resume-terminal-audio-gate {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 4;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid rgba(0, 220, 112, 0.45);
+  background: rgba(0, 24, 8, 0.8);
+  color: #00d06a;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.resume-terminal-audio-gate button {
+  border: 1px solid rgba(0, 220, 112, 0.65);
+  background: #00190a;
+  color: #00e67a;
+  font-family: inherit;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.resume-terminal-audio-gate button:hover {
+  background: #003113;
+}
+
+.resume-terminal-audio-gate.is-on {
+  border-color: rgba(0, 220, 112, 0.78);
+  color: #8bffb9;
+}
+
+.resume-terminal-main {
+  padding: 28px;
+  overflow: auto;
+  border-right: 1px solid rgba(0, 220, 112, 0.28);
+}
+
+.resume-terminal-main p {
+  margin: 0 0 9px;
+  color: #00da70;
+  font-size: clamp(0.95rem, 1.18vw, 1.12rem);
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+  text-transform: uppercase;
+  text-shadow: 0 0 6px rgba(0, 230, 122, 0.28);
+}
+
+.resume-terminal-main .resume-terminal-gap {
+  margin-top: 18px;
+}
+
+.resume-terminal-prompt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resume-terminal-cursor {
+  width: 0.82em;
+  height: 1.1em;
+  display: inline-block;
+  background: #00da70;
+  box-shadow: 0 0 10px rgba(0, 230, 122, 0.75);
+  animation: resume-terminal-blink 1s steps(1, end) infinite;
+}
+
+.resume-terminal-side {
+  display: grid;
+  grid-auto-rows: min-content;
+  align-content: start;
+  border-left: 1px solid rgba(0, 220, 112, 0.28);
+  background: rgba(0, 50, 18, 0.28);
+  min-height: 0;
+  overflow: auto;
+}
+
+.resume-terminal-side-head {
+  padding: 20px 18px 14px;
+  border-bottom: 1px solid rgba(0, 220, 112, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.resume-terminal-side-head h2 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  color: #00e67a;
+  text-transform: uppercase;
+}
+
+.resume-terminal-side-head span {
+  color: #00b85f;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.resume-terminal-side-head span::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+  background: #00b85f;
+  box-shadow: 0 0 8px rgba(0, 184, 95, 0.7);
+}
+
+.resume-terminal-side-block {
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(0, 220, 112, 0.3);
+}
+
+.resume-terminal-side-block h3 {
+  margin: 0 0 10px;
+  color: #00bb62;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.resume-terminal-side-block p {
+  margin: 0;
+  font-size: 1rem;
+  color: #00da70;
+}
+
+.resume-terminal-side-block ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.resume-terminal-side-block li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.resume-terminal-side-block li span {
+  color: #00bb62;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.resume-terminal-side-block li strong {
+  color: #00e67a;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.resume-terminal-status {
+  grid-column: 1 / -1;
+  border-top: 1px solid rgba(0, 220, 112, 0.58);
+  padding: 9px 16px 11px;
+  background: #000;
+  min-height: 108px;
+}
+
+.resume-terminal-status p {
+  margin: 0 0 8px;
+  color: #00b85f;
+  font-size: clamp(0.72rem, 0.75vw, 0.82rem);
+  letter-spacing: 0.04em;
+  line-height: 1.32;
+  text-transform: uppercase;
+}
+
+.resume-terminal-status p:last-child {
+  margin-bottom: 0;
+}
+
+@keyframes resume-terminal-blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
 /* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
@@ -1152,4 +1404,51 @@ footer {
   .resume-ai-summary { font-size: 1.02rem; }
   .resume-ai-role li { font-size: 0.98rem; }
   .resume-ai-list li { font-size: 0.98rem; }
+
+  .resume-terminal-page {
+    min-height: 100vh;
+    padding: 0;
+  }
+  .resume-terminal-screen {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    border-width: 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+  .resume-terminal-audio-gate {
+    top: 8px;
+    right: 8px;
+    gap: 8px;
+    font-size: 0.66rem;
+    padding: 6px 8px;
+  }
+  .resume-terminal-audio-gate button {
+    font-size: 0.64rem;
+    padding: 5px 6px;
+  }
+  .resume-terminal-main {
+    border-right: 0;
+    border-bottom: 1px solid rgba(0, 220, 112, 0.28);
+    padding: 16px 14px;
+  }
+  .resume-terminal-main p {
+    font-size: 0.93rem;
+    line-height: 1.38;
+  }
+  .resume-terminal-side {
+    border-left: 0;
+    max-height: none;
+  }
+  .resume-terminal-side-head h2 {
+    font-size: 1.28rem;
+  }
+  .resume-terminal-status {
+    min-height: 96px;
+    padding: 8px 12px 10px;
+  }
+  .resume-terminal-status p {
+    font-size: 0.68rem;
+  }
 }
