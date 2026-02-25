@@ -459,6 +459,214 @@ footer {
 .resume-item .meta { font-size: 0.8rem; color: var(--gray-mid); margin-bottom: 8px; }
 .resume-item p { font-size: 0.9rem; color: var(--gray-dark); }
 
+/* ---- RESUME AI PAGE ---- */
+.resume-ai-page {
+  background:
+    radial-gradient(circle at 10% 10%, rgba(200, 169, 110, 0.18), transparent 40%),
+    radial-gradient(circle at 90% 0%, rgba(17, 17, 17, 0.06), transparent 35%),
+    linear-gradient(180deg, #f9fafb 0%, #f4f6f8 100%);
+  min-height: calc(100vh - var(--nav-h));
+}
+
+.resume-ai-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 54px 32px 80px;
+}
+
+.resume-ai-hero {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 34px 34px 30px;
+  box-shadow: 0 8px 28px rgba(18, 26, 36, 0.08);
+  backdrop-filter: blur(6px);
+  margin-bottom: 22px;
+}
+
+.resume-ai-kicker {
+  font-family: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #8f7448;
+  margin-bottom: 12px;
+}
+
+.resume-ai-hero h1 {
+  font-family: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+
+.resume-ai-title {
+  color: #334155;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  margin-bottom: 14px;
+}
+
+.resume-ai-summary {
+  color: #475569;
+  max-width: 860px;
+  line-height: 1.75;
+  margin-bottom: 18px;
+}
+
+.resume-ai-contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.resume-ai-contact-row a,
+.resume-ai-contact-row span {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: #eef2f7;
+  color: #1f2937;
+  border: 1px solid #dbe4ee;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+}
+
+.resume-ai-contact-row a:hover {
+  text-decoration: none;
+  background: #e2e8f0;
+}
+
+.resume-ai-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.85fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.resume-ai-main-col,
+.resume-ai-side-col {
+  display: grid;
+  gap: 18px;
+}
+
+.resume-ai-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 24px 24px 22px;
+  box-shadow: 0 8px 24px rgba(20, 34, 53, 0.06);
+  backdrop-filter: blur(6px);
+}
+
+.resume-ai-card h2 {
+  font-family: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.02rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #334155;
+  margin: 0 0 20px;
+}
+
+.resume-ai-role {
+  border-left: 2px solid #e2e8f0;
+  padding-left: 16px;
+  margin-bottom: 22px;
+}
+
+.resume-ai-role-last {
+  margin-bottom: 0;
+}
+
+.resume-ai-role-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 3px;
+}
+
+.resume-ai-role-head h3 {
+  font-family: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.06rem;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.resume-ai-role-head span {
+  font-size: 0.78rem;
+  color: #64748b;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.resume-ai-role-title {
+  color: #475569;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.resume-ai-role p {
+  color: #334155;
+  font-size: 0.95rem;
+  line-height: 1.72;
+}
+
+.resume-ai-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.resume-ai-chips span {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: #f8fafc;
+  border: 1px solid #dce3ec;
+  color: #334155;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.resume-ai-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.resume-ai-list li {
+  position: relative;
+  padding-left: 14px;
+  color: #334155;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.resume-ai-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #c8a96e;
+}
+
+.resume-ai-clients {
+  color: #334155;
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
 /* ---- RESPONSIVE ---- */
 @media (max-width: 768px) {
   nav { padding: 0 20px; }
@@ -493,4 +701,9 @@ footer {
   .case-hero { padding: 100px 20px 60px; }
   .portfolio-grid { grid-template-columns: 1fr; }
   .work-grid { grid-template-columns: 1fr; }
+  .resume-ai-shell { padding: 38px 18px 60px; }
+  .resume-ai-hero { padding: 24px 18px 20px; }
+  .resume-ai-grid { grid-template-columns: 1fr; gap: 14px; }
+  .resume-ai-card { border-radius: 16px; padding: 18px 16px; }
+  .resume-ai-role-head { flex-direction: column; align-items: flex-start; gap: 3px; }
 }
