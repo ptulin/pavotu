@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1050" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8E9CD"/>
+      <stop offset="0.52" stop-color="#DCEBFF"/>
+      <stop offset="1" stop-color="#D9F2E7"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="276" y1="174" x2="913" y2="748" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1F2A3B"/>
+      <stop offset="1" stop-color="#2A3E59"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="900" rx="40" fill="url(#bg)"/>
+  <rect x="96" y="92" width="1008" height="716" rx="34" fill="rgba(255,255,255,0.52)" stroke="rgba(51,39,21,0.2)"/>
+
+  <circle cx="600" cy="430" r="240" fill="url(#panel)"/>
+  <circle cx="600" cy="355" r="88" fill="#F4D9AE"/>
+  <path d="M468 594C492 523 542 486 600 486C658 486 708 523 732 594" fill="#F4D9AE"/>
+
+  <path d="M520 317C542 282 574 264 608 264C641 264 670 278 690 311C677 283 652 250 611 244C567 238 534 266 520 317Z" fill="#121826"/>
+  <circle cx="569" cy="360" r="7" fill="#23201A"/>
+  <circle cx="632" cy="360" r="7" fill="#23201A"/>
+  <path d="M575 404C591 418 611 418 627 404" stroke="#8D5F24" stroke-width="6" stroke-linecap="round"/>
+
+  <rect x="294" y="658" width="612" height="98" rx="18" fill="rgba(17,24,39,0.9)"/>
+  <text x="334" y="702" fill="#E5B976" font-family="'Space Grotesk',Arial,sans-serif" font-size="28" font-weight="700" letter-spacing="2">UX • SERVICE DESIGN • AI PRODUCT UX</text>
+  <text x="334" y="734" fill="#E5E7EB" font-family="'Manrope',Arial,sans-serif" font-size="24" font-weight="500">Pawel Tulin</text>
+
+  <g opacity="0.75">
+    <circle cx="258" cy="252" r="24" fill="#E2B066"/>
+    <circle cx="914" cy="262" r="22" fill="#8AB9F4"/>
+    <circle cx="950" cy="612" r="20" fill="#7EC9AA"/>
+    <circle cx="234" cy="618" r="20" fill="#E4B46D"/>
+    <path d="M282 265C373 308 438 314 510 343" stroke="#AE7B32" stroke-width="5" stroke-linecap="round"/>
+    <path d="M690 338C760 305 818 303 892 277" stroke="#5A88C1" stroke-width="5" stroke-linecap="round"/>
+    <path d="M768 534C818 563 872 580 924 604" stroke="#2D8C68" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <rect x="106" y="102" width="188" height="40" rx="20" fill="rgba(15,23,42,0.86)"/>
+  <text x="126" y="129" fill="#F2F4F8" font-family="'Space Grotesk',Arial,sans-serif" font-size="20" font-weight="700">PROFILE VISUAL</text>
+</svg>
