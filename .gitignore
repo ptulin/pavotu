@@ -1,13 +1,20 @@
 # Claude local settings (keep permissions private)
 .claude/settings.local.json
 
-# Scraped raw data (not needed in production)
+# Scraped raw data/artifacts (not needed in production)
 scraped/
+scrape_home.html
 
 # OS
 .DS_Store
 Thumbs.db
 
 # Editor
+.idea
 .vscode/
 *.swp
+*.swo
+
+# Logs / temp
+*.log
+.cache

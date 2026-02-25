@@ -1,0 +1,5 @@
+---
+# public_html/pavotu = live; Update from Remote only (no deploy copy).
+deployment:
+  tasks:
+    - /bin/true
