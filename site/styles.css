@@ -789,10 +789,53 @@ footer {
   color: #2f2921;
 }
 
+.resume-ai-story-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 0 18px;
+}
+
+.resume-ai-story-card {
+  border-radius: 16px;
+  padding: 12px 12px 14px;
+  background: rgba(255, 253, 248, 0.9);
+  border: 1px solid rgba(86, 61, 22, 0.18);
+  box-shadow: 0 8px 20px rgba(28, 20, 11, 0.06);
+}
+
+.resume-ai-story-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid rgba(67, 48, 18, 0.18);
+  margin-bottom: 10px;
+}
+
+.resume-ai-story-card h3 {
+  font-family: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+  color: #19140f;
+  margin: 0 0 8px;
+}
+
+.resume-ai-story-card p {
+  margin: 0;
+  color: #2d261e;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
 .resume-ai-gallery {
   display: grid;
   grid-template-columns: 1fr;
   gap: 8px;
+}
+
+.resume-ai-gallery figure {
+  margin: 0;
 }
 
 .resume-ai-gallery img {
@@ -801,6 +844,15 @@ footer {
   object-fit: cover;
   border-radius: 12px;
   border: 1px solid rgba(68, 48, 16, 0.18);
+}
+
+.resume-ai-gallery figcaption {
+  margin-top: 5px;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #5a4a32;
+  font-weight: 600;
 }
 
 /* ---- RESPONSIVE ---- */
@@ -845,6 +897,7 @@ footer {
   }
   .resume-ai-hero-visual { min-height: 220px; }
   .resume-ai-metrics { grid-template-columns: 1fr; gap: 10px; }
+  .resume-ai-story-strip { grid-template-columns: 1fr; gap: 10px; }
   .resume-ai-grid { grid-template-columns: 1fr; gap: 14px; }
   .resume-ai-card { border-radius: 16px; padding: 20px 16px; }
   .resume-ai-role-head { flex-direction: column; align-items: flex-start; gap: 3px; }

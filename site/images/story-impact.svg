@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" fill="none">
+  <defs>
+    <linearGradient id="bg3" x1="110" y1="70" x2="1090" y2="690" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FAEFD8"/>
+      <stop offset="0.52" stop-color="#E6F2FF"/>
+      <stop offset="1" stop-color="#E0F5EC"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" rx="34" fill="url(#bg3)"/>
+  <rect x="80" y="86" width="1040" height="588" rx="30" fill="rgba(255,255,255,0.62)" stroke="rgba(41,30,12,0.24)"/>
+  <circle cx="256" cy="314" r="122" fill="#F5DFC0" stroke="#A56F1D" stroke-opacity="0.45"/>
+  <circle cx="600" cy="300" r="134" fill="#DAEBFF" stroke="#2C5D95" stroke-opacity="0.4"/>
+  <circle cx="944" cy="322" r="120" fill="#D8F2E7" stroke="#2E7A63" stroke-opacity="0.4"/>
+  <g fill="#1E1A14" opacity="0.9" font-family="'Space Grotesk', Arial, sans-serif" text-anchor="middle">
+    <text x="256" y="302" font-size="70" font-weight="700">90%</text>
+    <text x="256" y="338" font-size="22" font-weight="600">content reuse</text>
+    <text x="600" y="302" font-size="70" font-weight="700">70%</text>
+    <text x="600" y="338" font-size="22" font-weight="600">code reuse</text>
+    <text x="944" y="302" font-size="70" font-weight="700">50+</text>
+    <text x="944" y="338" font-size="22" font-weight="600">personas mapped</text>
+  </g>
+  <rect x="160" y="502" width="880" height="114" rx="20" fill="#FFFFFF" stroke="#2A3D5A" stroke-opacity="0.2"/>
+  <rect x="208" y="536" width="786" height="14" rx="7" fill="#152033" fill-opacity="0.82"/>
+  <rect x="208" y="562" width="520" height="10" rx="5" fill="#152033" fill-opacity="0.45"/>
+</svg>
