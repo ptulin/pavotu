@@ -462,9 +462,9 @@ footer {
 /* ---- RESUME AI PAGE ---- */
 .resume-ai-page {
   background:
-    radial-gradient(circle at 10% 10%, rgba(200, 169, 110, 0.18), transparent 40%),
-    radial-gradient(circle at 90% 0%, rgba(17, 17, 17, 0.06), transparent 35%),
-    linear-gradient(180deg, #f9fafb 0%, #f4f6f8 100%);
+    radial-gradient(circle at 15% 8%, rgba(217, 165, 90, 0.22), transparent 38%),
+    radial-gradient(circle at 86% 12%, rgba(188, 211, 236, 0.28), transparent 34%),
+    linear-gradient(180deg, #f9f6f0 0%, #f2efe8 100%);
   min-height: calc(100vh - var(--nav-h));
 }
 
@@ -475,44 +475,47 @@ footer {
 }
 
 .resume-ai-hero {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 253, 249, 0.94);
+  border: 1px solid rgba(62, 45, 18, 0.14);
   border-radius: 20px;
-  padding: 34px 34px 30px;
-  box-shadow: 0 8px 28px rgba(18, 26, 36, 0.08);
+  padding: 36px 36px 32px;
+  box-shadow: 0 10px 30px rgba(29, 22, 13, 0.08);
   backdrop-filter: blur(6px);
   margin-bottom: 22px;
 }
 
 .resume-ai-kicker {
   font-family: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: #8f7448;
+  letter-spacing: 0.22em;
+  color: #825d1f;
   margin-bottom: 12px;
 }
 
 .resume-ai-hero h1 {
-  font-family: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: clamp(2rem, 4vw, 3.3rem);
+  font-family: "Newsreader", Georgia, "Times New Roman", serif;
+  font-size: clamp(2.35rem, 4.5vw, 3.9rem);
   letter-spacing: -0.03em;
   line-height: 1.05;
-  margin-bottom: 10px;
+  color: #16130f;
+  margin-bottom: 12px;
 }
 
 .resume-ai-title {
-  color: #334155;
-  font-weight: 600;
+  color: #2f2a23;
+  font-weight: 700;
+  font-size: 1.16rem;
   letter-spacing: 0.01em;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .resume-ai-summary {
-  color: #475569;
+  color: #2f2a23;
+  font-size: 1.1rem;
   max-width: 860px;
-  line-height: 1.75;
-  margin-bottom: 18px;
+  line-height: 1.82;
+  margin-bottom: 20px;
 }
 
 .resume-ai-contact-row {
@@ -527,53 +530,60 @@ footer {
   align-items: center;
   padding: 9px 12px;
   border-radius: 999px;
-  background: #eef2f7;
-  color: #1f2937;
-  border: 1px solid #dbe4ee;
-  font-size: 0.82rem;
+  background: #f8f1e4;
+  color: #2f2a23;
+  border: 1px solid #d7c3a1;
+  font-size: 0.9rem;
   letter-spacing: 0.01em;
+  font-weight: 500;
 }
 
 .resume-ai-contact-row a:hover {
   text-decoration: none;
-  background: #e2e8f0;
+  background: #f1e4ce;
 }
 
 .resume-ai-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(0, 0.85fr);
-  gap: 18px;
+  grid-template-columns: minmax(0, 1.38fr) minmax(320px, 0.86fr);
+  gap: 22px;
   align-items: start;
 }
 
 .resume-ai-main-col,
 .resume-ai-side-col {
   display: grid;
-  gap: 18px;
+  gap: 20px;
+}
+
+.resume-ai-main-col {
+  padding: 0;
+  max-width: none;
+  margin: 0;
 }
 
 .resume-ai-card {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: rgba(255, 253, 250, 0.94);
+  border: 1px solid rgba(71, 53, 24, 0.16);
   border-radius: 20px;
-  padding: 24px 24px 22px;
-  box-shadow: 0 8px 24px rgba(20, 34, 53, 0.06);
+  padding: 26px 26px 24px;
+  box-shadow: 0 10px 26px rgba(33, 25, 15, 0.06);
   backdrop-filter: blur(6px);
 }
 
 .resume-ai-card h2 {
   font-family: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.02rem;
-  letter-spacing: 0.08em;
+  font-size: 1.12rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #334155;
+  color: #2d2a25;
   margin: 0 0 20px;
 }
 
 .resume-ai-role {
-  border-left: 2px solid #e2e8f0;
+  border-left: 3px solid #d8b178;
   padding-left: 16px;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .resume-ai-role-last {
@@ -590,31 +600,34 @@ footer {
 
 .resume-ai-role-head h3 {
   font-family: "Space Grotesk", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 1.06rem;
+  font-size: 1.32rem;
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
+  color: #14100d;
 }
 
 .resume-ai-role-head span {
-  font-size: 0.78rem;
-  color: #64748b;
-  letter-spacing: 0.08em;
+  font-size: 0.84rem;
+  color: #5a4a31;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   white-space: nowrap;
+  font-weight: 600;
 }
 
 .resume-ai-role-title {
-  color: #475569;
-  font-size: 0.85rem;
+  color: #3b3328;
+  font-size: 0.97rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .resume-ai-role p {
-  color: #334155;
-  font-size: 0.95rem;
-  line-height: 1.72;
+  color: #201a14;
+  font-size: 1.06rem;
+  line-height: 1.76;
 }
 
 .resume-ai-chips {
@@ -628,12 +641,13 @@ footer {
   align-items: center;
   padding: 8px 10px;
   border-radius: 999px;
-  background: #f8fafc;
-  border: 1px solid #dce3ec;
-  color: #334155;
-  font-size: 0.78rem;
+  background: #fbf4e8;
+  border: 1px solid #dcc39a;
+  color: #2b241b;
+  font-size: 0.84rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .resume-ai-list {
@@ -645,9 +659,9 @@ footer {
 .resume-ai-list li {
   position: relative;
   padding-left: 14px;
-  color: #334155;
-  font-size: 0.92rem;
-  line-height: 1.65;
+  color: #1f1913;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
 .resume-ai-list li::before {
@@ -658,13 +672,13 @@ footer {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #c8a96e;
+  background: #b8791f;
 }
 
 .resume-ai-clients {
-  color: #334155;
-  font-size: 0.92rem;
-  line-height: 1.75;
+  color: #1f1913;
+  font-size: 1.03rem;
+  line-height: 1.82;
 }
 
 /* ---- RESPONSIVE ---- */
@@ -704,6 +718,9 @@ footer {
   .resume-ai-shell { padding: 38px 18px 60px; }
   .resume-ai-hero { padding: 24px 18px 20px; }
   .resume-ai-grid { grid-template-columns: 1fr; gap: 14px; }
-  .resume-ai-card { border-radius: 16px; padding: 18px 16px; }
+  .resume-ai-card { border-radius: 16px; padding: 20px 16px; }
   .resume-ai-role-head { flex-direction: column; align-items: flex-start; gap: 3px; }
+  .resume-ai-summary { font-size: 1.02rem; }
+  .resume-ai-role p { font-size: 1rem; }
+  .resume-ai-list li { font-size: 0.98rem; }
 }
